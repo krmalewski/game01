@@ -1,0 +1,49 @@
+html {
+  background-color: black;
+  background: url(house.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  width: 100%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 100px auto;
+  height: 50px;
+
+}
+
+#top-floor {
+  width: 35%;
+  border: 2px solid white;
+  margin: 300px auto 50px auto;
+}
+
+#mid-floor {
+  width: 40%;
+  border: 2px solid white;
+  margin: 0 auto;
+}
+
+#ground-floor {
+  width: 65%;
+  border: 2px solid white;
+  margin: 90px auto;
+}
+
+.creature {
+  height: 50px;
+  width: 50px;
+  background-color: pink;
+/*  opacity: 0;*/
+}
+
