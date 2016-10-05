@@ -13,6 +13,7 @@
 <div class="info" id="name">Player 1:</div>
 <div class="info" id="points">Points: </div>
 <div class ="info" id="timer">Time Left:</div>
+<div class ="info" id="lives">Lives Left:</div>
 
 <div class="flex-container" id="top-floor">
   <div class="creature goblin flex-item" id="one"></div>
@@ -24,7 +25,7 @@
   <div class="creature vamp flex-item" id="four"></div>
   <div class="creature skeleton flex-item" id="five"></div>
   <div class="creature witch flex-item" id="six"></div>
-</div>
+</div>.life
 
 <div class="flex-container" id="ground-floor">
   <div class="creature vamp flex-item" id="seven"></div>
@@ -35,11 +36,13 @@
 </div>
 
 <form action="round2.html"  class=‘login’ method=‘get’ name='login-info'>
+  <input type="text" name="lives" class="life">
   <input type="text" name="firstname" class="username">
   <button type="submit" id="button1">Round 2</button>
 </form>
 
 <form action="game.html"  class=‘login’ method=‘get’ name='login-info'>
+  <input type="text" name="lives" class="life">
   <input type="text" name="firstname" class="username">
   <button type="submit" id="button2">Play Again!</button>
 </form>

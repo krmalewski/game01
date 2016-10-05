@@ -27,6 +27,7 @@ var name = delineate(formInfo);
 var username = $('.username')
 username.attr("value", name).hide();
 
+
 // Input the name that we pulled from the form into our name div so it will display
 // on the screen
 var nameBox = $('#name');
@@ -34,6 +35,19 @@ var player1 = nameBox.text();
 nameBox.text(player1 + " " + name);
 
 
+// After losing one life and replaying the round, we will need to get the number
+// of lives left from the URL string in a simular way as we did with the nickname
+// The lives will come before the name, after the first "=" so we need to find the
+// location of that "=" within the string and add one. The lives will never be more
+// than one digit so add one to that index to find the ending index of our substring.
+function delineateLives(str) {
+  point = str.indexOf("=") + 1;
+  return(str.substring(point, point + 1));
+}
+
+
+var lifeForm = $('.life');
+lifeForm.attr("value", name).hide();
 
 // Set the initial point value to zero
 var points = 0;
@@ -41,6 +55,14 @@ var points = 0;
 // Input the points into the point box so they display in the screen
 var pointBox = $('#points');
 pointBox.text('Points: ' + points);
+
+
+// Set the initial lives left to 3
+var life = 3;
+
+// Input the number of lives into the life box to display on screen
+var lifeBox = $('#lives');
+lifeBox.text('Lives left: ' + life);
 
 
 // Write a function that generates a random number
@@ -164,9 +186,14 @@ button2.hide();
 
 // If player scores enough points, they will
 function displayButton() {
-  if (points >= 2000) {
+  if (life === 1) {
+    alert('Game Over! Cats have nine live but you only have three. :( Better luck next time.');
+  } else if (points >= 2000) {;
+    lifeForm.attr("value", life)
     button1.show();
   } else {
+    life -= 1;
+    lifeForm.attr("value", life)
     button2.show();
   }
 }

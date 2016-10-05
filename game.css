@@ -36,6 +36,12 @@ body {
   text-align: center;
 }
 
+#lives {
+  right: 0px;
+  margin-top: 110px;
+  text-align: center;
+}
+
 .flex-container {
   display: flex;
   flex-direction: row;
