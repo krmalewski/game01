@@ -3,37 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>The Spooktacular House</title>
+  <title>LOGIN - The Spooktacular House</title>
   <link rel="stylesheet" href="style.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
 </head>
-
 <body>
+  <div>
+    <img src="moon.gif" alt="">
+  </div>
 
-<div class="score" id="points"></div>
-
-<div class="flex-container" id="top-floor">
-  <div class="creature goblin flex-item" id="one"></div>
-  <div class="creature ghost flex-item" id="two"></div>
-  <div class="creature vamp flex-item" id="three"></div>
-</div>
-
-<div class="flex-container" id="mid-floor">
-  <div class="creature vamp flex-item" id="four"></div>
-  <div class="creature skeleton flex-item" id="five"></div>
-  <div class="creature witch flex-item" id="six"></div>
-</div>
-
-<div class="flex-container" id="ground-floor">
-  <div class="creature vamp flex-item" id="seven"></div>
-  <div class="creature skeleton flex-item" id="eight"></div>
-  <div class="creature witch flex-item" id="nine"></div>
-  <div class="creature skeleton flex-item" id="ten"></div>
-  <div class="creature witch flex-item" id="eleven"></div>
-</div>
-
-  <script src="script.js" type="text/javascript" charset="utf-8" async defer></script>
+  <form action="game.html"  class=‘login’ method=‘get’ name='login-info'>
+    <section>
+      Full Name<span>*</span>   <input type="text" name="firstname" required=""><br>
+      Nickname <span>*</span>    <input type="text" name="lastname" required><br>
+    </section>
+    <button type="submit" class="pick">Login</button>
+  </form>
 
 </body>
 </html>
-

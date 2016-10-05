@@ -1,6 +1,45 @@
-// Set the initial point value to zero
 console.log('JS connected')
+
+// Pull the info from the form the search bar at the top of the page
+// and set it to a variable
+var formInfo = window.location.search;
+
+// Since we are trying to get the nickname of the player to display on our
+// gamr board, we see that it is at the end of the string in the search bar,
+// right after the last equal sign. We will look from the last equal sign and
+// return the index of that plus one, which will be the start of our string.
+function delineate(str) {
+  point = str.lastIndexOf("=");
+  // The string will be cut into a substring starting after the "="
+  var nickName = (str.substring(point+1));
+  // Check to see if the player accidently put a space after their name, this will
+  // cause a "+" to appear at the end of the their nickname on the game screen
+  if (nickName.charAt(nickName.length-1) === '+') {
+    // If they did, chop the ending character off of the substring
+    return nickName.substring(0,nickName.length-1);
+  } else {
+    //
+    return nickName;
+  }
+}
+
+var name = delineate(formInfo);
+
+// Input the name that we pulled from the form into our name div so it will display
+// on the screen
+var nameBox = $('#name');
+var player1 = nameBox.text();
+nameBox.text(player1 + " " + name);
+
+
+
+// Set the initial point value to zero
 var points = 0;
+
+// Input the points into the point box so they display in the screen
+var pointBox = $('#points');
+pointBox.text('Points: ' + points);
+
 
 // Write a function that generates a random number
 function randomNumber(min, max) {
@@ -18,9 +57,10 @@ function catchMe(event) {
     height: '0px',
   })
   $('.flex-container').css({
-    height: '50px',
+    height: '80px',
   })
   points += 100;
+  pointBox.text('Points: ' + points);
 }
 
 // I keep this open to the entire body since the items will be located at
@@ -33,8 +73,7 @@ $('.creature').click(catchMe)
 // just growing through this animation
 function grow(div) {
   $(div).animate({
-    height: '50px',
-    width: '50px',
+    height: '80px',
   }, 500);
   // The shrink function will cause the height to shrink back to 0,
   // making it appear as if the div has disappeared. The setTimeout
@@ -70,10 +109,12 @@ var window11 = setInterval(function() { grow('#eleven'); }, randomNumber(4000, 1
 
 // Create a timer using a loop
 // Tictoc will add seconds to clock
-var seconds = 45;
+var seconds = 20;
 var timer = null;
 
 function tictoc(){
+  var timeBox = $('#timer');
+  timeBox.text('Time left: ' + seconds);
   seconds -= 1;
   console.log(seconds);
   if (seconds === 0) {
@@ -88,6 +129,8 @@ function tictoc(){
     clearInterval(window9);
     clearInterval(window10);
     clearInterval(window11);
+    timeBox.text('Time\'s up!');
+    stopTime();
   }
 }
 
@@ -95,6 +138,11 @@ function tictoc(){
 // to the clock after every second
 function startTime() {
   timer = setInterval(tictoc, 1000)
+}
+
+// Make a function to turn off the timer
+function stopTime() {
+  clearInterval(timer);
 }
 
 // Document.ready will start the timer when the document has loaded

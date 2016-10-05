@@ -1,5 +1,5 @@
 html {
-  background: url(house.jpg) no-repeat center center fixed;
+  background: url(house1.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -16,6 +16,26 @@ body {
   position: fixed;
 }
 
+.info {
+  border: 1px solid white;
+  font-size: 25px;
+  font-family: helvetica;
+  color: white;
+  width: 200px;
+  height: 70px;
+  margin: 20px;
+  position: absolute;
+}
+
+#points {
+  margin-top: 110px;
+}
+
+#timer {
+  margin-left: 75%;
+  text-align: center;
+}
+
 .flex-container {
   display: flex;
   flex-direction: row;
@@ -23,25 +43,16 @@ body {
   align-items: center;
   flex-wrap: nowrap;
   margin: 0 auto;
-  height: 50px;
+  height: 80px;
   position: relative;
 
 }
 
-.score {
-  border: 1px solid white;
-  font-size: 40px;
-  color: white;
-  width: 100px;
-  height: 70px;
-  position: absolute;
-  margin: 20px;
-}
 
 #top-floor {
   width: 40%;
   border: 2px solid white;
-  margin: 30% auto 5% auto;
+  margin: 110px auto 70px auto;
 }
 
 #mid-floor {
@@ -51,13 +62,13 @@ body {
 }
 
 #ground-floor {
-  width: 65%;
+  width: 70%;
   border: 2px solid white;
-  margin: 70px auto;
+  margin: 90px auto;
 }
 
 .creature {
-  width: 50px;
+  width: 80px;
   background-color: pink;
 }
 
