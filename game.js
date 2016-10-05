@@ -131,6 +131,7 @@ function tictoc(){
     clearInterval(window11);
     timeBox.text('Time\'s up!');
     stopTime();
+    displayButton();
   }
 }
 
@@ -151,9 +152,34 @@ function stopTime() {
 $(document).ready(startTime)
 
 
+// Initally hide these buttons
+var buttonRound2 = $('#button1');
+buttonRound2.hide();
 
+var buttonPlay = $('#button2');
+buttonPlay.hide();
 
+// If player scores enough points, they will
+function displayButton() {
+  if (points >= 2000) {
+    buttonRound2.show();
+  } else {
+    buttonPlay.show();
+  }
+}
 
+// Create a function to take you to the game page
+function buttonClick() {
+  window.location = "game.html";
+}
+
+function nextRound() {
+  window.location = "round2.html";
+}
+
+// Create an event listener to execute buttonClick() when button is clicked
+$('#button2').click(buttonClick)
+$('#button1').click(nextRound)
 
 
 
