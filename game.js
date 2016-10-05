@@ -35,6 +35,25 @@ var player1 = nameBox.text();
 nameBox.text(player1 + " " + name);
 
 
+
+// Set the initial lives left to 3
+var life = 3;
+
+// Input the number of lives into the life box to display on screen
+var lifeBox = $('#lives');
+
+
+function displayLife() {
+  if (life2 === 2 || life2 === 1) {
+    lifeBox.text('Lives left: ' + life2);
+  } else {
+    lifeBox.text('Lives left: ' + life)
+  }
+}
+
+$(document).ready(displayLife);
+
+
 // After losing one life and replaying the round, we will need to get the number
 // of lives left from the URL string in a simular way as we did with the nickname
 // The lives will come before the name, after the first "=" so we need to find the
@@ -45,9 +64,11 @@ function delineateLives(str) {
   return(str.substring(point, point + 1));
 }
 
-
+var life2 = parseInt(delineateLives(formInfo));
 var lifeForm = $('.life');
-lifeForm.attr("value", name).hide();
+lifeForm.attr("value", life2).hide();
+
+
 
 // Set the initial point value to zero
 var points = 0;
@@ -57,12 +78,6 @@ var pointBox = $('#points');
 pointBox.text('Points: ' + points);
 
 
-// Set the initial lives left to 3
-var life = 3;
-
-// Input the number of lives into the life box to display on screen
-var lifeBox = $('#lives');
-lifeBox.text('Lives left: ' + life);
 
 
 // Write a function that generates a random number
@@ -186,14 +201,16 @@ button2.hide();
 
 // If player scores enough points, they will
 function displayButton() {
-  if (life === 1) {
+  if (life2 === 1) {
     alert('Game Over! Cats have nine live but you only have three. :( Better luck next time.');
   } else if (points >= 2000) {;
     lifeForm.attr("value", life)
     button1.show();
   } else {
     life -= 1;
-    lifeForm.attr("value", life)
+    life2 -= 1;
+    lifeBox.text('Lives left: ' + life);
+    lifeForm.attr("value", life2)
     button2.show();
   }
 }
