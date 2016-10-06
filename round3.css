@@ -62,25 +62,25 @@ h1 {
 
 #top-floor {
   width: 40%;
-  border: 2px solid white;
+/*  border: 2px solid white;*/
   margin: 110px auto 70px auto;
 }
 
 #mid-floor {
   width: 40%;
-  border: 2px solid white;
+/*  border: 2px solid white;*/
   margin: 0 auto;
 }
 
 #ground-floor {
   width: 70%;
-  border: 2px solid white;
+/*  border: 2px solid white;*/
   margin: 90px auto;
 }
 
 .creature {
   width: 80px;
-  background-color: pink;
+/*  background-color: pink;*/
 }
 
 img {

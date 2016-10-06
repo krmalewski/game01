@@ -52,10 +52,8 @@ lifeForm.attr("value", life2).hide();
 
 // Set the initial lives left to 3
 var life = 3;
-
 // Input the number of lives into the life box to display on screen
 var lifeBox = $('#lives');
-
 
 function displayLife() {
   if (life2 === 2 || life2 === 1) {
@@ -64,28 +62,44 @@ function displayLife() {
     lifeBox.text('Lives left: ' + life)
   }
 }
-
 $(document).ready(displayLife);
+
 
 
 // Set the initial point value to zero
 var points = 0;
-
 // Input the points into the point box so they display in the screen
 var pointBox = $('#points');
 pointBox.text('Points: ' + points);
 
 
-// Write a function that generates a random number
-function randomNumber(min, max) {
-  var interval = Math.random() * (max - min) + min;
-  return Math.floor(interval);
+
+// write a function that makes a div appear in the a window
+// the initial height of this div is 0 so it already exists, it is
+// just growing through this animation
+function grow(div) {
+  pickImage(div);
+  $(div).animate({
+    height: '80px',
+  }, 500);
+  // The shrink function will cause the height to shrink back to 0,
+  // making it appear as if the div has disappeared. The setTimeout
+  // will make it shrink after appearing for a set number of seconds
+  // which will decrease in the next level
+  setTimeout( function() {shrink(div); }, 2000);
 }
+
+// write a function that makes a div shrink and disappear
+function shrink(div) {
+  $(div).animate({
+    height: '0px',
+  })
+}
+
 // This function will respond to the users mouseclick on the appearing item
 // and will cause the item to shrink back to height 0 (disappearing in the
-// eues of the user)
-
-// I will also try to update the points live at the top of the screen
+// eyes of the user)
+// I will also update the points live at the top of the screen
 function catchMe(event) {
   console.log('BOO');
   $(event.target).css({
@@ -97,7 +111,6 @@ function catchMe(event) {
   points += 100;
   pointBox.text('Points: ' + points);
 }
-
 
 // This function is similar to catch me but will be executed when the user
 // clicks on one of the trick-or-treaters (they will loose points by doing
@@ -117,37 +130,41 @@ function dontClick(event) {
 
 
 // Array of images locations
-var array = ["images/ghost.jpg", "images/trick.png", "images/wolf.gif" ];
+var array = ["images/ghost.jpg", "images/trick.png", "images/wolf.gif", "images/Vampire.png", "images/witch.png", "images/mummy.png", "images/frankenstein.png" ];
 
-// Generate a random number between 0 and 2
+// To generate a random number between 0 and x
+// This will be used to randomly decide an index from the array of images
 function randomArrayIndex(max) {
   var number = Math.random() * max
   return Math.floor(number);
 }
 
-// Randomize the image that will pop up in the windows. If the index refers
-// to an image that should be clicked, add the class "trick" so we can later
-// target those items  to add points if clicked. If the index refers to an
-// image that should not be clicked, add the class "treat" so we can target
-// those images to remove points from the player if they are clicked
+// Randomize the image that will pop up in the windows.
 function pickImage(div) {
-  var index = randomArrayIndex(3);
+  var index = randomArrayIndex(7);
   var pic = array[index];
+  // Since the pictures will be rotating, the picture previously appended must be
+  // removed before appending a new image.
   $(div).children('img').remove();
-  // $(div).removeClass('trick treat')
+  var image = $('<img>', {src: pic});
   if (index === 1) {
-    var image = $('<img>', {src: pic});
-    // $(div).addClass('treat');
+    // If the index refers to the item that should not, turn on the event handler
+    // that subtracts points from the player
     $(div).one("click", dontClick);
   } else {
-    var image = $('<img>', {src: pic});
-    $(div).addClass('trick');
+    // Otherwise, add an event handler that add points for clicking the creatures
     $(div).one("click", catchMe);
   }
   $(div).append(image)
 }
 
+// Write a function that generates a random number
+function randomNumber(min, max) {
+  var interval = Math.random() * (max - min) + min;
+  return Math.floor(interval);
+}
 
+// Have images popping up in windows at random intervals
 var window1 = setInterval(function() { grow('#one'); }, randomNumber(4000, 10000));
 var window2 = setInterval(function() { grow('#two'); }, randomNumber(4000, 10000));
 var window3 = setInterval(function() { grow('#three'); }, randomNumber(4000, 10000));
@@ -159,36 +176,6 @@ var window8 = setInterval(function() { grow('#eight'); }, randomNumber(4000, 100
 var window9 = setInterval(function() { grow('#nine'); }, randomNumber(4000, 10000));
 var window10 = setInterval(function() { grow('#ten'); }, randomNumber(4000, 10000));
 var window11 = setInterval(function() { grow('#eleven'); }, randomNumber(4000, 10000));
-
-
-
-
-
-
-
-// write a function that makes a div appear in the a window
-// the initial height of this div is 0 so it already exists, it is
-// just growing through this animation
-function grow(div) {
-  pickImage(div);
-  $(div).animate({
-    height: '80px',
-  }, 500);
-  // The shrink function will cause the height to shrink back to 0,
-  // making it appear as if the div has disappeared. The setTimeout
-  // will make it shrink after appearing for a set number of seconds
-  // which will decrease in the next level
-  setTimeout( function() {shrink(div); }, 2000);
-}
-
-//
-// write a function that makes a div shrink and disappear
-function shrink(div) {
-  $(div).animate({
-    height: '0px',
-  })
-}
-
 
 
 
@@ -241,9 +228,6 @@ $(document).ready(startTime)
 var button1 = $('#button1');
 button1.hide();
 
-
-var button2 = $('#button2');
-button2.hide();
 
 // If player scores enough points, they will
 function displayButton() {
