@@ -74,6 +74,37 @@ pointBox.text('Points: ' + points);
 
 
 
+// Array of images locations
+var array = ["images/ghost.jpg", "images/trick.png", "images/wolf.gif", "images/Vampire.png", "images/witch.png", "images/mummy.png", "images/frankenstein.png" ];
+
+// To generate a random number between 0 and x
+// This will be used to randomly decide an index from the array of images
+function randomArrayIndex(max) {
+  var number = Math.random() * max
+  return Math.floor(number);
+}
+
+// Randomize the image that will pop up in the windows.
+function pickImage(div) {
+  var index = randomArrayIndex(7);
+  var pic = array[index];
+  // Since the pictures will be rotating, the picture previously appended must be
+  // removed before appending a new image.
+  $(div).children('img').remove();
+  var image = $('<img>', {src: pic});
+  if (index === 1) {
+    // If the index refers to the item that should not, turn on the event handler
+    // that subtracts points from the player
+    console.log('dont click meee')
+    $(div).one("click", dontClick);
+  } else {
+    // Otherwise, add an event handler that add points for clicking the creatures
+    console.log("click meee")
+    $(div).one("click", catchMe);
+  }
+  $(div).append(image)
+}
+
 // write a function that makes a div appear in the a window
 // the initial height of this div is 0 so it already exists, it is
 // just growing through this animation
@@ -129,34 +160,6 @@ function dontClick(event) {
 
 
 
-// Array of images locations
-var array = ["images/ghost.jpg", "images/trick.png", "images/wolf.gif", "images/Vampire.png", "images/witch.png", "images/mummy.png", "images/frankenstein.png" ];
-
-// To generate a random number between 0 and x
-// This will be used to randomly decide an index from the array of images
-function randomArrayIndex(max) {
-  var number = Math.random() * max
-  return Math.floor(number);
-}
-
-// Randomize the image that will pop up in the windows.
-function pickImage(div) {
-  var index = randomArrayIndex(7);
-  var pic = array[index];
-  // Since the pictures will be rotating, the picture previously appended must be
-  // removed before appending a new image.
-  $(div).children('img').remove();
-  var image = $('<img>', {src: pic});
-  if (index === 1) {
-    // If the index refers to the item that should not, turn on the event handler
-    // that subtracts points from the player
-    $(div).one("click", dontClick);
-  } else {
-    // Otherwise, add an event handler that add points for clicking the creatures
-    $(div).one("click", catchMe);
-  }
-  $(div).append(image)
-}
 
 // Write a function that generates a random number
 function randomNumber(min, max) {
