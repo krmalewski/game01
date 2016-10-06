@@ -98,8 +98,6 @@ function catchMe(event) {
   pointBox.text('Points: ' + points);
 }
 
-$('.creature').click(catchMe)
-
 
 // This function is similar to catch me but will be executed when the user
 // clicks on one of the trick-or-treaters (they will loose points by doing
@@ -115,7 +113,7 @@ function dontClick(event) {
   points -= 100;
   pointBox.text('Points: ' + points);
 }
-$('.treaters').click(dontClick)
+
 
 
 // Array of images locations
@@ -135,22 +133,32 @@ function randomArrayIndex(max) {
 function pickImage(div) {
   var index = randomArrayIndex(3);
   var pic = array[index];
-  console.log(pic);
-  $('.trick').remove();
-  $('.treat').remove();
+  $(div).children('img').remove();
+  // $(div).removeClass('trick treat')
   if (index === 1) {
-    var image = $('<img>', {src: pic}).addClass('treat');
+    var image = $('<img>', {src: pic});
+    // $(div).addClass('treat');
+    $(div).one("click", dontClick);
   } else {
-    var image = $('<img>', {src: pic}).addClass('trick');
+    var image = $('<img>', {src: pic});
+    $(div).addClass('trick');
+    $(div).one("click", catchMe);
   }
   $(div).append(image)
 }
-grow('#one')
+
 
 var window1 = setInterval(function() { grow('#one'); }, randomNumber(4000, 10000));
-
-
-
+var window2 = setInterval(function() { grow('#two'); }, randomNumber(4000, 10000));
+var window3 = setInterval(function() { grow('#three'); }, randomNumber(4000, 10000));
+var window4 = setInterval(function() { grow('#four'); }, randomNumber(4000, 10000));
+var window5 = setInterval(function() { grow('#five'); }, randomNumber(4000, 10000));
+var window6 = setInterval(function() { grow('#six'); }, randomNumber(4000, 10000));
+var window7 = setInterval(function() { grow('#seven'); }, randomNumber(4000, 10000));
+var window8 = setInterval(function() { grow('#eight'); }, randomNumber(4000, 10000));
+var window9 = setInterval(function() { grow('#nine'); }, randomNumber(4000, 10000));
+var window10 = setInterval(function() { grow('#ten'); }, randomNumber(4000, 10000));
+var window11 = setInterval(function() { grow('#eleven'); }, randomNumber(4000, 10000));
 
 
 
@@ -170,8 +178,9 @@ function grow(div) {
   // making it appear as if the div has disappeared. The setTimeout
   // will make it shrink after appearing for a set number of seconds
   // which will decrease in the next level
-  setTimeout( function() {shrink(div); }, 1000);
+  setTimeout( function() {shrink(div); }, 2000);
 }
+
 //
 // write a function that makes a div shrink and disappear
 function shrink(div) {
@@ -195,16 +204,16 @@ function tictoc(){
   console.log(seconds);
   if (seconds === 0) {
     clearInterval(window1);
-    // clearInterval(window2);
-    // clearInterval(window3);
-    // clearInterval(window4);
-    // clearInterval(window5);
-    // clearInterval(window6);
-    // clearInterval(window7);
-    // clearInterval(window8);
-    // clearInterval(window9);
-    // clearInterval(window10);
-    // clearInterval(window11);
+    clearInterval(window2);
+    clearInterval(window3);
+    clearInterval(window4);
+    clearInterval(window5);
+    clearInterval(window6);
+    clearInterval(window7);
+    clearInterval(window8);
+    clearInterval(window9);
+    clearInterval(window10);
+    clearInterval(window11);
     timeBox.text('Time\'s up!');
     stopTime();
     displayButton();
