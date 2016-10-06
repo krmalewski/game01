@@ -118,11 +118,41 @@ function dontClick(event) {
 $('.treaters').click(dontClick)
 
 
+// Array of images locations
+var array = ["images/ghost.jpg", "images/trick.png", "images/wolf.gif" ];
+
+
+function randomArrayIndex(max) {
+  var number = Math.random() * max
+  return Math.floor(number);
+}
+
+function pickImage(div) {
+  var pic = array[randomArrayIndex(3)];
+  console.log(pic);
+  $('.picture').remove();
+  var image = $('<img>', {src: pic}).addClass('picture');
+  $(div).append(image)
+
+}
+
+
+var window1 = setInterval(function() { grow('#one'); }, randomNumber(4000, 10000));
+
+
+
+
+
+
+
+
+
 
 // write a function that makes a div appear in the a window
 // the initial height of this div is 0 so it already exists, it is
 // just growing through this animation
 function grow(div) {
+  pickImage();
   $(div).animate({
     height: '80px',
   }, 500);
