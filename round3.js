@@ -121,21 +121,31 @@ $('.treaters').click(dontClick)
 // Array of images locations
 var array = ["images/ghost.jpg", "images/trick.png", "images/wolf.gif" ];
 
-
+// Generate a random number between 0 and 2
 function randomArrayIndex(max) {
   var number = Math.random() * max
   return Math.floor(number);
 }
 
+// Randomize the image that will pop up in the windows. If the index refers
+// to an image that should be clicked, add the class "trick" so we can later
+// target those items  to add points if clicked. If the index refers to an
+// image that should not be clicked, add the class "treat" so we can target
+// those images to remove points from the player if they are clicked
 function pickImage(div) {
-  var pic = array[randomArrayIndex(3)];
+  var index = randomArrayIndex(3);
+  var pic = array[index];
   console.log(pic);
-  $('.picture').remove();
-  var image = $('<img>', {src: pic}).addClass('picture');
+  $('.trick').remove();
+  $('.treat').remove();
+  if (index === 1) {
+    var image = $('<img>', {src: pic}).addClass('treat');
+  } else {
+    var image = $('<img>', {src: pic}).addClass('trick');
+  }
   $(div).append(image)
-
 }
-
+grow('#one')
 
 var window1 = setInterval(function() { grow('#one'); }, randomNumber(4000, 10000));
 
@@ -152,7 +162,7 @@ var window1 = setInterval(function() { grow('#one'); }, randomNumber(4000, 10000
 // the initial height of this div is 0 so it already exists, it is
 // just growing through this animation
 function grow(div) {
-  pickImage();
+  pickImage(div);
   $(div).animate({
     height: '80px',
   }, 500);
@@ -162,7 +172,7 @@ function grow(div) {
   // which will decrease in the next level
   setTimeout( function() {shrink(div); }, 1000);
 }
-
+//
 // write a function that makes a div shrink and disappear
 function shrink(div) {
   $(div).animate({
@@ -185,16 +195,16 @@ function tictoc(){
   console.log(seconds);
   if (seconds === 0) {
     clearInterval(window1);
-    clearInterval(window2);
-    clearInterval(window3);
-    clearInterval(window4);
-    clearInterval(window5);
-    clearInterval(window6);
-    clearInterval(window7);
-    clearInterval(window8);
-    clearInterval(window9);
-    clearInterval(window10);
-    clearInterval(window11);
+    // clearInterval(window2);
+    // clearInterval(window3);
+    // clearInterval(window4);
+    // clearInterval(window5);
+    // clearInterval(window6);
+    // clearInterval(window7);
+    // clearInterval(window8);
+    // clearInterval(window9);
+    // clearInterval(window10);
+    // clearInterval(window11);
     timeBox.text('Time\'s up!');
     stopTime();
     displayButton();
