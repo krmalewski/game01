@@ -216,7 +216,7 @@ function displayButton() {
     life2 -= 1;
     lifeBox.text('Lives left: ' + life);
     lifeForm.attr("value", life)
-    button2.show();
+    button1.show();
   }
 }
 

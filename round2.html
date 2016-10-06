@@ -3,10 +3,54 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <link rel="stylesheet" href="">
+  <title>The Spooktacular House</title>
+  <link rel="stylesheet" href="round2.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
 </head>
+
 <body>
-  Round 2!
+
+  <h1>Round 2</h1>
+
+<div class="info" id="name">Player 1:</div>
+<div class="info" id="points">Points: </div>
+<div class ="info" id="timer">Time Left:</div>
+<div class ="info" id="lives">Lives Left: </div>
+
+<div class="flex-container" id="top-floor">
+  <div class="creature goblin flex-item" id="one"></div>
+  <div class="creature ghost flex-item" id="two"></div>
+  <div class="creature vamp flex-item" id="three"></div>
+</div>
+
+<div class="flex-container" id="mid-floor">
+  <div class="creature vamp flex-item" id="four"></div>
+  <div class="creature skeleton flex-item" id="five"></div>
+  <div class="creature witch flex-item" id="six"></div>
+</div>
+
+<div class="flex-container" id="ground-floor">
+  <div class="creature vamp flex-item" id="seven"></div>
+  <div class="creature skeleton flex-item" id="eight"></div>
+  <div class="creature witch flex-item" id="nine"></div>
+  <div class="creature skeleton flex-item" id="ten"></div>
+  <div class="creature witch flex-item" id="eleven"></div>
+</div>
+
+<form action="round3.html"  class=‘login’ method=‘get’ name='login-info'>
+  <input type="text" name="lives" class="life">
+  <input type="text" name="firstname" class="username">
+  <button type="submit" id="button1">Round 3</button>
+</form>
+
+<form action="round2.html"  class=‘login’ method=‘get’ name='login-info'>
+  <input type="text" name="lives" class="life">
+  <input type="text" name="firstname" class="username">
+  <button type="submit" id="button2">Play Again!</button>
+</form>
+
+  <script src="round2.js" type="text/javascript" charset="utf-8" async defer></script>
+
 </body>
 </html>
+
