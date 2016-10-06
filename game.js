@@ -83,9 +83,6 @@ function catchMe(event) {
   pointBox.text('Points: ' + points);
 }
 
-// I keep this open to the entire body since the items will be located at
-// different parts of the screen
-// $('.creature').click(catchMe)
 
 // Array of images locations
 var array = ["images/ghost.jpg", "images/wolf.gif", "images/Vampire.png", "images/witch.png", "images/mummy.png", "images/frankenstein.png" ];
@@ -219,11 +216,18 @@ function displayButton() {
   } else if ((life2 === 1 && points >= 1500) || (life2 === 2 && points >= 1500))  {
     lifeForm.attr("value", life2)
     button1.show();
+  // } else if (life2 === NaN && points >= 1500) {
+  //   lifeForm.attr("value", life);
+  //   lifeBox.text('Lives left: ' + life);
+  //   button1.show();
   } else if (life2 === 2 && points < 1500) {
     life2 -= 1;
     lifeBox.text('Lives left: ' + life2);
     lifeForm.attr("value", life2);
     button2.show();
+  } else if (points >= 1500) {
+    lifeForm.attr("value", life)
+    button1.show();
   } else {
     life -= 1;
     life2 -= 1;
@@ -232,16 +236,3 @@ function displayButton() {
     button1.show();
   }
 }
-
-
-
-// function position(event) {
-//   console.log('I\'m here');
-//   var x = event.pageX;
-//   var y = event.pageY;
-//   console.log('x = ' + x + ', y = ' + y)
-
-// }
-
-
-// $('html').click(position)
