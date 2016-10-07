@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>The Spooktacular House</title>
   <link rel="stylesheet" href="game.css">
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Unicase|Creepster|Economica|Fjalla+One|Open+Sans+Condensed:300|Special+Elite" rel="stylesheet">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
 </head>
 
@@ -12,42 +13,51 @@
 
   <h1>Round 1</h1>
 
-<div class="info" id="name">Player 1:</div>
-<div class="info" id="points">Points: </div>
-<div class ="info" id="timer">Time Left:</div>
-<div class ="info" id="lives">Lives Left: </div>
-
-<div class="flex-container" id="top-floor">
-  <div class="flex-item" id="one"></div>
-  <div class="flex-item" id="two"></div>
-  <div class="flex-item" id="three"></div>
+<div class="info">
+  <div id="name">Player:</div>
+  <div id="points">Points: </div>
+  <div id="timer">Time Left:</div>
+  <div id="lives">Lives Left: </div>
 </div>
 
-<div class="flex-container" id="mid-floor">
-  <div class="flex-item" id="four"></div>
-  <div class="flex-item" id="five"></div>
-  <div class="flex-item" id="six"></div>
-</div>.life
+  <div class="flex-container" id="top-floor">
+    <div class="flex-item" id="one"></div>
+    <div class="flex-item" id="two"></div>
+    <div class="flex-item" id="three"></div>
+    <div class="flex-item" id="four"></div>
+    <div class="flex-item" id="five"></div>
+    <div class="flex-item" id="six"></div>
+  </div>
 
-<div class="flex-container" id="ground-floor">
-  <div class="flex-item" id="seven"></div>
-  <div class="flex-item" id="eight"></div>
-  <div class="flex-item" id="nine"></div>
-  <div class="flex-item" id="ten"></div>
-  <div class="flex-item" id="eleven"></div>
-</div>
+  <div class="flex-container" id="ground-floor">
+    <div class="flex-item" id="seven"></div>
+    <div class="flex-item" id="eight"></div>
+    <div class="flex-item" id="nine"></div>
+    <div class="flex-item" id="ten"></div>
+    <div class="flex-item" id="eleven"></div>
+    <div class="flex-item" id="twelve"></div>
+  </div>
 
-<form action="round2.html"  class=‘login’ method=‘get’ name='login-info'>
-  <input type="text" name="lives" class="life">
-  <input type="text" name="firstname" class="username">
-  <button type="submit" id="button1">Round 2</button>
-</form>
+  <div class="end" id=‘next-round’>
+    <form action="round2.html"  method=‘get’ name='login-info'>
+      <h2>Enter at your own risk...</h2>
+      <input type="text" name="lives" class="life">
+      <input type="text" name="firstname" class="username">
+      <button type="submit" id="button1">Round 2</button>
+    </form>
+  </div>
 
-<form action="game.html"  class=‘login’ method=‘get’ name='login-info'>
-  <input type="text" name="lives" class="life">
-  <input type="text" name="firstname" class="username">
-  <button type="submit" id="button2">Play Again!</button>
-</form>
+  <div class="end" id='try-again'>
+    <form action="game.html" method=‘get’ name='login-info'>
+      <h2></h2>
+      <input type="text" name="lives" class="life">
+      <input type="text" name="firstname" class="username">
+      <button type="submit" id="button2">Play Again!</button>
+    </form>
+  </div>
+
+  <audio src="background-music.mp3"></audio>
+  <embed src="background-music.mp3" width="180" height="90" loop="true" autostart="true" hidden="true" />
 
   <script src="game.js" type="text/javascript" charset="utf-8" async defer></script>
 

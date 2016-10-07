@@ -39,9 +39,9 @@ var life = 3;
 var lifeBox = $('#lives');
 function displayLife() {
   if (life2 === 2 || life2 === 1) {
-    lifeBox.text('Lives left: ' + life2);
+    lifeBox.text('Lives left:   ' + life2);
   } else {
-    lifeBox.text('Lives left: ' + life)
+    lifeBox.text('Lives left:   ' + life)
   }
 }
 $(document).ready(displayLife);
@@ -67,25 +67,40 @@ lifeForm.attr("value", life2).hide();
 var points = 0;
 // Input the points into the point box so they display in the screen
 var pointBox = $('#points');
-pointBox.text('Points: ' + points);
+pointBox.text('Points:   ' + points);
 
+
+function blood() {
+  $('body').css({
+    "background":"url(images/blood-frame.png) no-repeat center center fixed",
+    "opacity": "0.5",
+    "background-size": "cover",
+    "margin-top": "0",
+    "height": "100%",
+    "width": "100%"
+  });
+}
+
+function removeBlood() {
+  $('body').css("background-image", "none");
+}
 
 // I will also try to update the points live at the top of the screen
 function catchMe(event) {
   console.log('BOO');
-  $(event.target).css({
-    height: '0px',
-  })
+  blood();
+  setTimeout(removeBlood, 300);
+  $(event.target).attr('src','images/blood-splatter.png');
   $('.flex-container').css({
     height: '80px',
   })
   points += 100;
-  pointBox.text('Points: ' + points);
+  pointBox.text('Points:   ' + points);
 }
 
 
 // Array of images locations
-var array = ["images/ghost.jpg", "images/wolf.gif", "images/Vampire.png", "images/witch.png", "images/mummy.png", "images/frankenstein.png" ];
+var array = ["images/ghost.png", "images/crow.png", "images/escape.png", "images/ghost2.png", "images/zombie.png", "images/zombie2.png" ];
 
 // To generate a random number between 0 and x
 // This will be used to randomly decide an index from the array of images
@@ -163,7 +178,7 @@ var timer = null;
 
 function tictoc(){
   var timeBox = $('#timer');
-  timeBox.text('Time left: ' + seconds);
+  timeBox.text('Time left:   ' + seconds);
   seconds -= 1;
   console.log(seconds);
   if (seconds === 0) {
@@ -202,37 +217,42 @@ $(document).ready(startTime)
 
 
 // Initally hide these buttons
-var button1 = $('#button1');
-button1.hide();
+var form1 = $('#next-round').eq(0);
+console.log(form1);
+form1.hide();
 
 
-var button2 = $('#button2');
-button2.hide();
+var form2 = $('#try-again').eq(0);
+form2.hide();
+
+// var button1 = $('#button1');
+
+
+// var button2 = $('#button2');
+// button2.hide();
 
 // If player scores enough points, they will
 function displayButton() {
   if (life2 === 1 && points < 1500) {
+    life2 -= 1;
+    lifeBox.text('Lives left: ' + life2);
     alert('Game Over! Cats have nine live but you only have three. :( Better luck next time.');
-  } else if ((life2 === 1 && points >= 1500) || (life2 === 2 && points >= 1500))  {
+  } else if ((life2 === 1 && points >= 1500) || (life2 === 2 && points >= 1500) || (life2 === 3 && points >= 1500))  {
     lifeForm.attr("value", life2)
-    button1.show();
-  // } else if (life2 === NaN && points >= 1500) {
-  //   lifeForm.attr("value", life);
-  //   lifeBox.text('Lives left: ' + life);
-  //   button1.show();
+    form1.show();
   } else if (life2 === 2 && points < 1500) {
     life2 -= 1;
     lifeBox.text('Lives left: ' + life2);
     lifeForm.attr("value", life2);
-    button2.show();
+    form2.show();
   } else if (points >= 1500) {
     lifeForm.attr("value", life)
-    button1.show();
+    form1.show();
   } else {
     life -= 1;
     life2 -= 1;
-    lifeBox.text('Lives left: ' + life);
+    lifeBox.text('Lives left:   ' + life);
     lifeForm.attr("value", life)
-    button1.show();
+    form2.show();
   }
 }

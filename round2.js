@@ -101,9 +101,7 @@ function pickImage(div) {
 // I will also update the points live at the top of the screen
 function catchMe(event) {
   console.log('BOO');
-  $(event.target).css({
-    height: '0px',
-  })
+  $(event.target).attr('src','images/slime.png');
   $('.flex-container').css({
     height: '80px',
   })
