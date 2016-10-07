@@ -233,7 +233,7 @@ function displayButton() {
   if (life2 === 1 && points < 1500) {
     life2 -= 1;
     lifeBox.text('Lives left: ' + life2);
-    alert('Game Over! Cats have nine live but you only have three. :( Better luck next time.');
+    // alert('Game Over! Cats have nine live but you only have three. :( Better luck next time.');
   } else if ((life2 === 1 && points >= 1500) || (life2 === 2 && points >= 1500) || (life2 === 3 && points >= 1500))  {
     lifeForm.attr("value", life2)
     form1.show();
