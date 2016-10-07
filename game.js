@@ -73,7 +73,7 @@ pointBox.text('Points:   ' + points);
 function blood() {
   $('body').css({
     "background":"url(images/blood-frame.png) no-repeat center center fixed",
-    "opacity": "0.5",
+    // "opacity": "0.5",
     "background-size": "cover",
     "margin-top": "0",
     "height": "100%",
@@ -82,7 +82,10 @@ function blood() {
 }
 
 function removeBlood() {
-  $('body').css("background-image", "none");
+  $('body').css({
+    "background-image": "none",
+    "opacity": "1"
+  });
 }
 
 // I will also try to update the points live at the top of the screen
@@ -218,18 +221,12 @@ $(document).ready(startTime)
 
 // Initally hide these buttons
 var form1 = $('#next-round').eq(0);
-console.log(form1);
 form1.hide();
 
 
 var form2 = $('#try-again').eq(0);
 form2.hide();
 
-// var button1 = $('#button1');
-
-
-// var button2 = $('#button2');
-// button2.hide();
 
 // If player scores enough points, they will
 function displayButton() {
