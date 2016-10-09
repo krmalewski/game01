@@ -166,6 +166,7 @@ var window8 = setInterval(function() { grow('#eight'); }, randomNumber(4000, 100
 var window9= setInterval(function() { grow('#nine'); }, randomNumber(4000, 10000));
 var window10 = setInterval(function() { grow('#ten'); }, randomNumber(4000, 10000));
 var window11 = setInterval(function() { grow('#eleven'); }, randomNumber(4000, 10000));
+var window12 = setInterval(function() { grow('#twelve'); }, randomNumber(4000, 10000));
 
 // Create a timer using a loop
 // Tictoc will add seconds to clock
@@ -189,6 +190,7 @@ function tictoc(){
     clearInterval(window9);
     clearInterval(window10);
     clearInterval(window11);
+    clearInterval(window12);
     timeBox.text('Time\'s up!');
     stopTime();
     displayButton();
@@ -213,10 +215,10 @@ $(document).ready(startTime)
 
 
 // Initally hide these divs
-var form1 = $('#next-round').eq(0);
+var form1 = $('#next-round');
 form1.hide();
 
-var form2 = $('#try-again').eq(0);
+var form2 = $('#try-again');
 form2.hide();
 
 var gameOver = $('.game-over');
@@ -225,19 +227,19 @@ gameOver.hide();
 
 // If player scores enough points, they will
 function displayButton() {
-  if (life2 === 1 && points < 1500) {
+  if (life2 === 1 && points < 2000) {
     life2 -= 1;
     lifeBox.text('Lives left: ' + life2);
     gameOver.show();
-  } else if ((life2 === 1 && points >= 1500) || (life2 === 2 && points >= 1500) || (life2 === 3 && points >= 1500))  {
+  } else if ((life2 === 1 && points >= 2000) || (life2 === 2 && points >= 2000) || (life2 === 3 && points >= 2000))  {
     lifeForm.attr("value", life2)
     form1.show();
-  } else if (life2 === 2 && points < 1500) {
+  } else if (life2 === 2 && points < 2000) {
     life2 -= 1;
     lifeBox.text('Lives left: ' + life2);
     lifeForm.attr("value", life2);
     form2.show();
-  } else if (points >= 1500) {
+  } else if (points >= 2000) {
     lifeForm.attr("value", life)
     form1.show();
   } else {

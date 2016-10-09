@@ -246,21 +246,24 @@ var form1 = $('#try-again');
 form1.hide();
 
 
-var gameOver = $('.game-over');
+var gameOver = $('#game-over');
 gameOver.hide();
+
+var winner = $('#winner');
+winner.hide();
 
 
 function displayButton() {
   // If they are out of lives and do not score enough points, game over.
-  if (life2 === 1 && points < 1000) {
+  if (life2 === 1 && points < 1500) {
     gameOver.show();
     // If they have enough points they win!!
-  } else if ((life2 === 1 && points >= 1000) || (life2 === 2 && points >= 1000))  {
+  } else if ((life2 === 1 && points >= 1500) || (life2 === 2 && points >= 1500))  {
     lifeForm.attr("value", life2)
-    alert('You win!')
+    winner.show();
     // If player did not score enough points, they loose a life and can play
     // the round again.
-  } else if (life2 === 2 && points < 1000) {
+  } else if (life2 === 2 && points < 1500) {
     life2 -= 1;
     lifeBox.text('Lives left: ' + life2);
     lifeForm.attr("value", life2);
