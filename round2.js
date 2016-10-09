@@ -196,6 +196,7 @@ function tictoc(){
     clearInterval(window9);
     clearInterval(window10);
     clearInterval(window11);
+    clearInterval(window12);
     timeBox.text('Time\'s up!');
     stopTime();
     displayButton();

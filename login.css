@@ -1,0 +1,99 @@
+
+body {
+  width: 100%;
+  min-height: 100%;
+  position: fixed;
+  background-color: black;
+}
+
+div img {
+  width: 800px;
+  margin-top: -350px;
+  margin-left: -200px;
+  position: fixed;
+}
+
+form {
+  border-radius: 5px;
+  background: url(images/oldpaper.gif) no-repeat center;
+  background-size: cover;
+  opacity: 0.8;
+  padding: 20px;
+  width: 65%;
+  position: fixed;
+  margin: 160px 0 0 240px;
+}
+
+h1 {
+  font-family: 'Creepster', cursive;
+  font-size: 60px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+section {
+  font-family: 'Special Elite', cursive;
+  display: inline-block;
+  width: 50%;
+  margin: 0 10px;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Special Elite', cursive;
+}
+
+input[type=int], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Special Elite', cursive;
+}
+
+button {
+/*    width: 30%;*/
+    background-color: #3E4459;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Special Elite', cursive;
+    font-size: 25px;
+}
+
+button:hover {
+    background-color: #485B70;
+}
+
+p {
+  display: inline-block;
+  padding: 0 50px 0 10px;
+}
+
+span {
+  color: #425C66;
+}
+
+.instructions {
+  display: inline-block;
+  background-color: white;
+  height: 200px;
+  width: 40%;
+  float: right;
+  margin-right: 20px;
+  border-radius: 10px;
+  font-family: 'Special Elite', cursive;
+  padding: 10px;
+}

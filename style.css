@@ -1,99 +1,112 @@
+html {
+  background: url(images/stars.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-top: 0;
+  height: 100%;
+  width: 100%
+}
 
 body {
   width: 100%;
   min-height: 100%;
-  position: fixed;
-  background-color: black;
-}
-
-div img {
-  width: 800px;
-  margin-top: -350px;
-  margin-left: -200px;
+  margin: 0px;
   position: fixed;
 }
 
-form {
-  border-radius: 5px;
-  background: url(images/oldpaper.gif) no-repeat center;
-  background-size: cover;
-  opacity: 0.8;
-  padding: 20px;
-  width: 65%;
-  position: fixed;
-  margin: 160px 0 0 240px;
+h5 {
+  color: #e6e6e6;
+  font-family: 'Questrial', sans-serif;
+  padding: 10px;
+}
+
+.d {
+  border: 5px solid white;
+  border-radius: 50px;
+  color: white;
+  font-size: 32px;
+  width: 30%;
+  margin: 20%;
+  font-family: 'Julius Sans One', sans-serif;
 }
 
 h1 {
-  font-family: 'Creepster', cursive;
-  font-size: 60px;
-  margin: 10px auto;
-  text-align: center;
+  margin: 0;
+  padding: 10px 0 10px 20px;
 }
 
-section {
-  font-family: 'Special Elite', cursive;
-  display: inline-block;
-  width: 50%;
-  margin: 0 10px;
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin: 70px auto;
+  width: 300px;
+  font-family: 'Questrial', sans-serif;
+/*  border: 1px solid white;*/
 }
 
-input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
+input {
     border-radius: 4px;
-    box-sizing: border-box;
-    font-family: 'Special Elite', cursive;
-}
-
-input[type=int], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-family: 'Special Elite', cursive;
-}
-
-button {
-/*    width: 30%;*/
-    background-color: #3E4459;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
+    font-size: 14px;
+    background-color: grey;
+    padding: 15px 20px 15px 40px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: 'Special Elite', cursive;
-    font-size: 25px;
+    width: 80%;
+    flex-wrap: wrap;
+    opacity: 0.6;
+    outline: none;
 }
 
-button:hover {
-    background-color: #485B70;
+input[type=text]:focus {
+    border: 2px solid #ff0066;
+}
+
+
+.username {
+  background-image: url('images/user-icon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  color: white;
+}
+
+.password {
+  background-image: url('images/password.png');
+  background-position: 13px 10px;
+  background-repeat: no-repeat;
+  background-size: 15px;
+  color: white;
+}
+
+.bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 p {
-  display: inline-block;
-  padding: 0 50px 0 10px;
+  font-family: 'Questrial', sans-serif;
+  color: white;
+  font-size: 13px;
 }
 
-span {
-  color: #425C66;
+button {
+  background-color: #ff0066;
+  font-family: 'Questrial', sans-serif;
+  color: white;
+  padding: 16px 27px;
+  border: none;
+  border-radius: 5px;
+  align-self: flex-end;
+  font-size: 14px;
 }
 
-.instructions {
-  display: inline-block;
-  background-color: white;
-  height: 200px;
-  width: 40%;
-  float: right;
-  margin-right: 20px;
-  border-radius: 10px;
-  font-family: 'Special Elite', cursive;
-  padding: 10px;
+button:hover {
+  background-color: #c10551;
 }
