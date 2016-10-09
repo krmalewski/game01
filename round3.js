@@ -163,7 +163,7 @@ function grow(div) {
   // making it appear as if the div has disappeared. The setTimeout
   // will make it shrink after appearing for a set number of seconds
   // which will decrease in the next level
-  setTimeout( function() {shrink(div); }, 2000);
+  setTimeout( function() {shrink(div); }, 1000);
 }
 
 // write a function that makes a div shrink and disappear
