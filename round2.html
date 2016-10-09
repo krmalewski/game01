@@ -13,10 +13,12 @@
 
   <h1>Round 2</h1>
 
-<div class="info" id="name">Player 1:</div>
-<div class="info" id="points">Points: </div>
-<div class ="info" id="timer">Time Left:</div>
-<div class ="info" id="lives">Lives Left: </div>
+<div class="info">
+  <div id="name">Player:</div>
+  <div id="points">Points: </div>
+  <div id="timer">Time Left:</div>
+  <div id="lives">Lives Left: </div>
+</div>
 
 <div class="flex-container" id="top-floor">
   <div class="flex-item" id="one"></div>
@@ -38,17 +40,32 @@
   <div class="flex-item" id="eleven"></div>
 </div>
 
-<form action="round3.html"  class=‘login’ method=‘get’ name='login-info'>
-  <input type="text" name="lives" class="life">
-  <input type="text" name="firstname" class="username">
-  <button type="submit" id="button1">Round 3</button>
-</form>
+  <div class="end" id="next-round">
+    <form action="round3.html"  method=‘get’ name='login-info'>
+      <h2>Round Two Complete </h2>
+      <h4>You have protected yourself from the <br>
+      spirits inhabiting this house for now, but <br>
+      don't think that round two will be so easy.</h4>
+      <input type="text" name="lives" class="life">
+      <input type="text" name="firstname" class="username">
+      <button type="submit" id="button1">Round 3</button>
+      <h3>Enter at your own risk....</h4>
+    </form>
+  </div>
 
-<form action="round2.html"  class=‘login’ method=‘get’ name='login-info'>
-  <input type="text" name="lives" class="life">
-  <input type="text" name="firstname" class="username">
-  <button type="submit" id="button2">Play Again!</button>
-</form>
+  <div class="end" id="try-again">
+    <form action="round2.html" method=‘get’ name='login-info'>
+      <h4>The spirits have defeated you this time...</h4>
+      <input type="text" name="lives" class="life">
+      <input type="text" name="firstname" class="username">
+      <button type="submit" id="button2">Try again?</button>
+    </form>
+  </div>
+
+  <div class="game-over">
+    <h5>Game Over!</h5>
+    <p>Cats have nine live but you only have three. &#9785; Better luck next time.</p>
+  </div>
 
   <script src="round2.js" type="text/javascript" charset="utf-8" async defer></script>
 

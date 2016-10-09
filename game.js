@@ -219,13 +219,15 @@ function stopTime() {
 $(document).ready(startTime)
 
 
-// Initally hide these buttons
+// Initally hide these divs
 var form1 = $('#next-round').eq(0);
 form1.hide();
 
-
 var form2 = $('#try-again').eq(0);
 form2.hide();
+
+var gameOver = $('.game-over');
+gameOver.hide();
 
 
 // If player scores enough points, they will
@@ -233,7 +235,7 @@ function displayButton() {
   if (life2 === 1 && points < 1500) {
     life2 -= 1;
     lifeBox.text('Lives left: ' + life2);
-    // alert('Game Over! Cats have nine live but you only have three. :( Better luck next time.');
+    gameOver.show();
   } else if ((life2 === 1 && points >= 1500) || (life2 === 2 && points >= 1500) || (life2 === 3 && points >= 1500))  {
     lifeForm.attr("value", life2)
     form1.show();

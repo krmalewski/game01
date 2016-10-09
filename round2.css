@@ -1,5 +1,6 @@
+
 html {
-  background: url(house1.jpg) no-repeat center center fixed;
+  background: url(images/scaryhouse.jpeg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -17,70 +18,53 @@ body {
 }
 
 h1 {
-  text-align: center;
+  font-family: 'Cormorant Unicase', serif;
   color: white;
-  font-family: helvetica;
+  font-size: 50px;
+  margin: 20px 0 10px 50px;
 }
 
 .info {
-  border: 1px solid white;
   font-size: 25px;
   font-family: helvetica;
   color: white;
   width: 200px;
-  height: 70px;
-  margin: 20px;
-  position: absolute;
-}
-
-#points {
-  margin-top: 110px;
-}
-
-#timer {
-  right: 0px;
-  text-align: center;
-}
-
-#lives {
-  right: 0px;
-  margin-top: 110px;
-  text-align: center;
+  height: 200px;
+  margin: 0 0 0 20px;
+  font-family: 'Special Elite', cursive;
+  background-color: #3E4459;
+  opacity: 0.7;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
 .flex-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
   margin: 0 auto;
   height: 80px;
-  position: relative;
-
+  position: absolute;
+  width: 55%;
+  left: 38%;
 }
 
 #top-floor {
-  width: 40%;
- /* border: 2px solid white;*/
-  margin: 110px auto 70px auto;
-}
-
-#mid-floor {
-  width: 40%;
-/*  border: 2px solid white;*/
-  margin: 0 auto;
+  top: 32%;
 }
 
 #ground-floor {
-  width: 70%;
-/*  border: 2px solid white;*/
-  margin: 90px auto;
+  top: 52%;
 }
 
 .flex-item {
   width: 80px;
-/*  background-color: pink;*/
 }
 
 img {
@@ -90,17 +74,145 @@ img {
 }
 
 button {
-  width: 100px;
-  background-color: #6699ff;
+  width: 160px;
+  background-color: #2C273D;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 15px;
-  position: fixed;
-  top: 50px;
-  left: 400px;
+  font-family: 'Cormorant Unicase', serif;
+  font-size: 25px;
 }
+
+button:hover {
+  background-color: #404063;
+  border: 1px solid white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.end {
+  background-color: #3D515E;
+  opacity: 0.8;
+  width: 60%;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  border-radius: 10px;
+  border: dotted 3px #597091;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+ }
+
+#try-again {
+  padding: 10px;
+}
+
+h2 {
+  font-family: 'Cormorant Unicase', serif;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px auto;
+}
+
+h4 {
+  font-family: 'Special Elite', cursive;
+  text-align: center;
+  font-size: 20px;
+  margin: 10px auto 20px auto;
+  line-height: 140%;
+}
+
+h3 {
+  font-family: 'Special Elite', serif;
+  margin: 20px auto 10px auto ;
+}
+
+
+.game-over {
+  background-color: #630F0D;
+  opacity: 0.7;
+  height: 30%;
+  width: 60%;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  border-radius: 10px;
+  border: dotted 3px #5E513D;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+p {
+  font-family: 'Special Elite', cursive;
+  font-size: 25px;
+  text-align: center;
+  line-height: 180%;
+  margin: 0;
+}
+
+h5 {
+  font-size: 50px;
+  font-family: 'Cormorant Unicase', serif;
+  margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .flex-container {
+    width: 80%;
+    left: 15%;
+  }
+
+  .info {
+    margin-top: 90%;
+    font-size: 20px;
+    height: 120px;
+    margin-left: 25%;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 20px;
+  }
+
+  h1 {
+    margin-left: 30%;
+    margin-top: 20%;
+  }
+
+  .end {
+    opacity: 1;
+    left: 20%;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  .game-over {
+    height: 120px;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 20px;
+    left: 15%;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  h5 {
+    font-size: 30px;
+  }
+}
+

@@ -72,7 +72,8 @@ var pointBox = $('#points');
 pointBox.text('Points: ' + points);
 
 // Array of images locations
-var array = ["images/ghost.jpg", "images/wolf.gif", "images/Vampire.png", "images/witch.png", "images/mummy.png", "images/frankenstein.png" ];
+var array = ["images/ghost.png", "images/crow.png", "images/escape.png", "images/ghost2.png", "images/zombie.png", "images/zombie2.png" ];
+
 
 // To generate a random number between 0 and x
 // This will be used to randomly decide an index from the array of images
@@ -94,6 +95,22 @@ function pickImage(div) {
   $(div).one("click", catchMe);
 }
 
+function blood() {
+  $('body').css({
+    "background":"url(images/blood-frame.png) no-repeat center center fixed",
+    "background-size": "cover",
+    "margin-top": "0",
+    "height": "100%",
+    "width": "100%"
+  });
+}
+
+function removeBlood() {
+  $('body').css({
+    "background-image": "none",
+    "opacity": "1"
+  });
+}
 
 // This function will respond to the users mouseclick on the appearing item
 // and will cause the item to shrink back to height 0 (disappearing in the
@@ -101,7 +118,9 @@ function pickImage(div) {
 // I will also update the points live at the top of the screen
 function catchMe(event) {
   console.log('BOO');
-  $(event.target).attr('src','images/slime.png');
+  blood();
+  setTimeout(removeBlood, 300);
+  $(event.target).attr('src','images/blood-splatter.png');
   $('.flex-container').css({
     height: '80px',
   })
@@ -199,27 +218,34 @@ function stopTime() {
 $(document).ready(startTime)
 
 
-// Initally hide these buttons
-var button1 = $('#button1');
-button1.hide();
+// Initally hide these divs
+var form1 = $('#next-round').eq(0);
+form1.hide();
+
+var form2 = $('#try-again').eq(0);
+form2.hide();
+
+var gameOver = $('.game-over');
+gameOver.hide();
 
 
-var button2 = $('#button2');
-button2.hide();
 
-// If player scores enough points, they will
 function displayButton() {
+  // If player is out of lives and does not score enough points, game over.
   if (life2 === 1 && points < 1000) {
     life2 -= 1;
     lifeBox.text('Lives left: ' + life2);
-    alert('Game Over! Cats have nine live but you only have three. :( Better luck next time.');
+    gameOver.show();
+    // If player scores enough points, they advance to the next round.
   } else if (points >= 1000)  {
     lifeForm.attr("value", life2)
-    button1.show();
+    form1.show();
+    // If player does not score enough points but is not out of lives yet,
+    // they loose a life and replay the current round.
   } else {
     life2 -= 1;
     lifeBox.text('Lives left: ' + life2);
     lifeForm.attr("value", life2);
-    button2.show();
+    form2.show();
   }
 }
