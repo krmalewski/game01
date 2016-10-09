@@ -9,19 +9,14 @@ var formInfo = window.location.search;
 // right after the last equal sign. We will look from the last equal sign and
 // return the index of that plus one, which will be the start of our string.
 function delineate(str) {
-  point = str.lastIndexOf("=");
+  theLeft = str.indexOf("=") + 1;
   // The string will be cut into a substring starting after the "="
-  var nickName = (str.substring(point+1));
-  // Check to see if the player accidently put a space after their name, this will
-  // cause a "+" to appear at the end of the their nickname on the game screen
-  if (nickName.charAt(nickName.length-1) === '+') {
-    // If they did, chop the ending character off of the substring
-    return nickName.substring(0,nickName.length-1);
-  } else {
-    //
-    return nickName;
-  }
+  theRight = str.lastIndexOf("&");
+  // The substring will end right before the '&'
+  var nickName = (str.substring(theLeft, theRight));
+  return nickName;
 }
+
 
 var name = delineate(formInfo);
 var username = $('.username')
