@@ -141,7 +141,7 @@ function grow(div) {
   // making it appear as if the div has disappeared. The setTimeout
   // will make it shrink after appearing for a set number of seconds
   // which will decrease in the next level
-  setTimeout( function() {shrink(div); }, 1500);
+  setTimeout( function() {shrink(div); }, 1000);
 }
 
 // write a function that makes a div shrink and disappear
@@ -172,6 +172,7 @@ var window8 = setInterval(function() { grow('#eight'); }, randomNumber(4000, 100
 var window9= setInterval(function() { grow('#nine'); }, randomNumber(4000, 10000));
 var window10 = setInterval(function() { grow('#ten'); }, randomNumber(4000, 10000));
 var window11 = setInterval(function() { grow('#eleven'); }, randomNumber(4000, 10000));
+var window12 = setInterval(function() { grow('#twelve'); }, randomNumber(4000, 10000));
 
 // Create a timer using a loop
 // Tictoc will add seconds to clock

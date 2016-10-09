@@ -75,7 +75,7 @@ pointBox.text('Points: ' + points);
 
 
 // Array of images locations
-var array = ["images/ghost.jpg", "images/trick.png", "images/wolf.gif", "images/Vampire.png", "images/witch.png", "images/mummy.png", "images/frankenstein.png" ];
+var array = ["images/ghost.png", "images/costume.png", "images/crow.png", "images/escape.png", "images/costume.png", "images/ghost2.png", "images/zombie.png", "images/zombie2.png" ];
 
 // To generate a random number between 0 and x
 // This will be used to randomly decide an index from the array of images
@@ -92,7 +92,7 @@ function pickImage(div) {
   // removed before appending a new image.
   $(div).children('img').remove();
   var image = $('<img>', {src: pic});
-  if (index === 1) {
+  if (index === 1 || index === 4) {
     // If the index refers to the item that should not, turn on the event handler
     // that subtracts points from the player
     console.log('dont click meee')
@@ -103,6 +103,52 @@ function pickImage(div) {
     $(div).one("click", catchMe);
   }
   $(div).append(image)
+}
+
+function blood() {
+  $('body').css({
+    "background":"url(images/blood-frame.png) no-repeat center center fixed",
+    "background-size": "cover",
+    "margin-top": "0",
+    "height": "100%",
+    "width": "100%"
+  });
+}
+
+function removeBlood() {
+  $('body').css({
+    "background-image": "none",
+    "opacity": "1"
+  });
+}
+
+// This function will respond to the users mouseclick on the appearing item
+// and will cause the item to shrink back to height 0 (disappearing in the
+// eyes of the user)
+// I will also update the points live at the top of the screen
+function catchMe(event) {
+  console.log('BOO');
+  blood();
+  setTimeout(removeBlood, 300);
+  $(event.target).attr('src','images/blood-splatter.png');
+  $('.flex-container').css({
+    height: '80px',
+  })
+  points += 100;
+  pointBox.text('Points: ' + points);
+}
+
+// This function is similar to catch me but will be executed when the user
+// clicks on one of the trick-or-treaters (they will loose points by doing
+// this)
+function dontClick(event) {
+  console.log('OOPS');
+  $(event.target).attr('src', 'images/scream.png');
+  $('.flex-container').css({
+    height: '80px',
+  })
+  points -= 100;
+  pointBox.text('Points: ' + points);
 }
 
 // write a function that makes a div appear in the a window
@@ -127,39 +173,6 @@ function shrink(div) {
   })
 }
 
-// This function will respond to the users mouseclick on the appearing item
-// and will cause the item to shrink back to height 0 (disappearing in the
-// eyes of the user)
-// I will also update the points live at the top of the screen
-function catchMe(event) {
-  console.log('BOO');
-  $(event.target).css({
-    height: '0px',
-  })
-  $('.flex-container').css({
-    height: '80px',
-  })
-  points += 100;
-  pointBox.text('Points: ' + points);
-}
-
-// This function is similar to catch me but will be executed when the user
-// clicks on one of the trick-or-treaters (they will loose points by doing
-// this)
-function dontClick(event) {
-  console.log('OOPS');
-  $(event.target).css({
-    height: '0px',
-  })
-  $('.flex-container').css({
-    height: '80px',
-  })
-  points -= 100;
-  pointBox.text('Points: ' + points);
-}
-
-
-
 
 // Write a function that generates a random number
 function randomNumber(min, max) {
@@ -179,7 +192,7 @@ var window8 = setInterval(function() { grow('#eight'); }, randomNumber(4000, 100
 var window9 = setInterval(function() { grow('#nine'); }, randomNumber(4000, 10000));
 var window10 = setInterval(function() { grow('#ten'); }, randomNumber(4000, 10000));
 var window11 = setInterval(function() { grow('#eleven'); }, randomNumber(4000, 10000));
-
+var window12 = setInterval(function() { grow('#twelve'); }, randomNumber(4000, 10000));
 
 
 // Create a timer using a loop
@@ -204,6 +217,7 @@ function tictoc(){
     clearInterval(window9);
     clearInterval(window10);
     clearInterval(window11);
+    clearInterval(window12);
     timeBox.text('Time\'s up!');
     stopTime();
     displayButton();
@@ -227,28 +241,35 @@ function stopTime() {
 $(document).ready(startTime)
 
 
-// Initally hide these buttons
-var button1 = $('#button1');
-button1.hide();
+// Initally hide these divs
+var form1 = $('#try-again');
+form1.hide();
 
 
-// If player scores enough points, they will
+var gameOver = $('.game-over');
+gameOver.hide();
+
+
 function displayButton() {
+  // If they are out of lives and do not score enough points, game over.
   if (life2 === 1 && points < 1000) {
-    alert('Game Over! Cats have nine live but you only have three. :( Better luck next time.');
+    gameOver.show();
+    // If they have enough points they win!!
   } else if ((life2 === 1 && points >= 1000) || (life2 === 2 && points >= 1000))  {
     lifeForm.attr("value", life2)
     alert('You win!')
+    // If player did not score enough points, they loose a life and can play
+    // the round again.
   } else if (life2 === 2 && points < 1000) {
     life2 -= 1;
     lifeBox.text('Lives left: ' + life2);
     lifeForm.attr("value", life2);
-    button1.show();
+    form1.show();
   } else {
     life -= 1;
     life2 -= 1;
     lifeBox.text('Lives left: ' + life);
     lifeForm.attr("value", life)
-    button1.show();
+    form1.show();
   }
 }

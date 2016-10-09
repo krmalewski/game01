@@ -13,10 +13,12 @@
 
   <h1>Round 3</h1>
 
-<div class="info" id="name">Player 1:</div>
-<div class="info" id="points">Points: </div>
-<div class ="info" id="timer">Time Left:</div>
-<div class ="info" id="lives">Lives Left: </div>
+<div class="info">
+  <div id="name">Player:</div>
+  <div id="points">Points: </div>
+  <div id="timer">Time Left:</div>
+  <div id="lives">Lives Left: </div>
+</div>
 
 <div class="flex-container" id="top-floor">
   <div class="flex-item" id="one"></div>
@@ -24,11 +26,6 @@
   <div class="flex-item" id="three"></div>
 </div>
 
-<div class="flex-container" id="mid-floor">
-  <div class="flex-item" id="four"></div>
-  <div class="flex-item" id="five"></div>
-  <div class="flex-item" id="six"></div>
-</div>
 
 <div class="flex-container" id="ground-floor">
   <div class="flex-item" id="seven"></div>
@@ -38,14 +35,24 @@
   <div class="flex-item" id="eleven"></div>
 </div>
 
-<form action="round3.html"  class=‘login’ method=‘get’ name='login-info'>
-  <input type="text" name="lives" class="life">
-  <input type="text" name="firstname" class="username">
-  <button type="submit" id="button1">Play Again!</button>
-</form>
+<div class="end" id="try-again">
+  <form action="round3.html" method=‘get’ name='login-info'>
+    <h4>The spirits have defeated you this time...</h4>
+    <input type="text" name="lives" class="life">
+    <input type="text" name="firstname" class="username">
+    <button type="submit" id="button1">Try again?</button>
+  </form>
+</div>
 
+ <div class="game-over">
+  <h5>Game Over!</h5>
+  <p>Cats have nine live but you only have three. &#9785; Better luck next time.</p>
+</div>
 
-  <script src="round3.js" type="text/javascript" charset="utf-8" async defer></script>
+<audio src="background-music.mp3"></audio>
+<embed src="background-music.mp3" width="180" height="90" loop="true" autostart="true" hidden="true" />
+
+<script src="round3.js" type="text/javascript" charset="utf-8" async defer></script>
 
 </body>
 </html>

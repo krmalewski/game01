@@ -73,7 +73,6 @@ pointBox.text('Points:   ' + points);
 function blood() {
   $('body').css({
     "background":"url(images/blood-frame.png) no-repeat center center fixed",
-    // "opacity": "0.5",
     "background-size": "cover",
     "margin-top": "0",
     "height": "100%",
