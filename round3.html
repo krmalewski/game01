@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="round3.css">
   <link href="https://fonts.googleapis.com/css?family=Cormorant+Unicase|Creepster|Economica|Fjalla+One|Open+Sans+Condensed:300|Special+Elite" rel="stylesheet">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
+  <script src="round3.js" type="text/javascript" charset="utf-8" async defer></script>
 </head>
 
 <body>
@@ -47,6 +48,7 @@
  <div class="alert" id="game-over">
   <h5>Game Over!</h5>
   <p>Cats have nine live but you only have three. &#9785; Better luck next time.</p>
+  <input type="button" id="play-again" onclick="location.href='index.html';" value="Play again?" />
 </div>
 
 <div class="alert" id="winner">
@@ -58,7 +60,6 @@
 <audio src="background-music.mp3"></audio>
 <embed src="background-music.mp3" width="180" height="90" loop="true" autostart="true" hidden="true" />
 
-<script src="round3.js" type="text/javascript" charset="utf-8" async defer></script>
 
 </body>
 </html>

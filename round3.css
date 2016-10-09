@@ -141,7 +141,7 @@ h3 {
 .alert {
   background-color: #630F0D;
   opacity: 0.7;
-  height: 30%;
+  height: 40%;
   width: 60%;
   position: fixed;
   top: 30%;
@@ -168,6 +168,23 @@ h5 {
   font-family: 'Cormorant Unicase', serif;
   margin: 0;
 }
+
+#play-again {
+    font-family: 'Cormorant Unicase', serif;
+    background-color: #CCB0A4;
+    font-size: 25px;
+    padding: 10px;
+    text-decoration: none;
+    margin: 20px;
+    color: black;
+    border: none;
+    border-radius: 5px;
+}
+
+#play-again:hover {
+  background-color: #73635C;
+}
+
 
 @media screen and (max-width: 480px) {
   .flex-container {
