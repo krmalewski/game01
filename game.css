@@ -23,6 +23,45 @@ h1 {
   margin: 20px 0 10px 50px;
 }
 
+.directions {
+  position: fixed;
+  top: 10%;
+  margin-top: 5%;
+  margin-left: 20%;
+  width: 70%;
+  background-color: white;
+  font-family: 'Special Elite', cursive;
+  line-height: 1.5;
+  text-align: center;
+  opacity: 0.9;
+  background-color: #808784;
+  border-radius: 4px;
+}
+
+span {
+  font-style: italic;
+}
+
+.begin {
+  background-color: #E3D5B7;
+  border-radius: 4px;
+  padding: 10px;
+  width: 70%;
+  margin: 20px;
+  color: black;
+}
+
+.begin:hover {
+  background-color: #DBCEE7;
+  border: none;
+}
+
+h6 {
+  margin: 0;
+  padding: 10px;
+  font-size: 20px;
+}
+
 .info {
   font-size: 25px;
   font-family: helvetica;

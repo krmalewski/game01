@@ -199,6 +199,7 @@ function tictoc(){
     clearInterval(window12);
     timeBox.text('Time\'s up!');
     stopTime();
+    $('.flex-container').hide();
     displayButton();
   }
 }
@@ -234,12 +235,12 @@ gameOver.hide();
 
 function displayButton() {
   // If player is out of lives and does not score enough points, game over.
-  if (life2 === 1 && points < 2000) {
+  if (life2 === 1 && points < 1000) {
     life2 -= 1;
     lifeBox.text('Lives left: ' + life2);
     gameOver.show();
     // If player scores enough points, they advance to the next round.
-  } else if (points >= 2000)  {
+  } else if (points >= 1000)  {
     lifeForm.attr("value", life2)
     form1.show();
     // If player does not score enough points but is not out of lives yet,
