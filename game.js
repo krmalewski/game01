@@ -4,13 +4,12 @@ console.log('JS connected')
 // and set it to a variable
 var formInfo = window.location.search;
 
-// Since we are trying to get the nickname of the player to display on our
-// gamr board, we see that it is at the end of the string in the search bar,
-// right after the last equal sign. We will look from the last equal sign and
-// return the index of that plus one, which will be the start of our string.
+// Since we are trying to get the username of the player to display on our
+// gameboard, we will need to break up the string that returns the form info
+// and pull out the username.
 function delineate(str) {
   theLeft = str.indexOf("=") + 1;
-  // The string will be cut into a substring starting after the "="
+  // The string will be cut into a substring starting after the first "="
   theRight = str.lastIndexOf("&");
   // The substring will end right before the '&'
   var nickName = (str.substring(theLeft, theRight));
