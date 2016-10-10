@@ -105,8 +105,11 @@ button {
   border-radius: 5px;
   align-self: flex-end;
   font-size: 14px;
+  -webkit-transition: padding 2s; /* Safari */
+  transition: padding 2s;
 }
 
 button:hover {
   background-color: #c10551;
+  padding: 16px 50px;
 }
