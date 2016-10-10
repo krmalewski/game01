@@ -25,6 +25,15 @@ The design for the landing page can be found at this [site](https://www.elegantt
 * The box to the left will hold user information collected from the form and game such as: username, points, time left, and lives left. 
 * The boxes to the right represent the windows that creatures will randomly appear in. 
 
+## Approach 
+* setInterval was used to have the divs grow and shrink as the timer counted down 
+* Math.random was used to randomize the intervals of each window growing and shrinking 
+* Math.random was also used to randomize which image from the array of images will be displayed in each div 
+* jQuery was used to target divs and add event handlers to indicate when clicked 
+
+## Unsolved Problems 
+* I would have liked to add all levels in one object in a js file but I was unable to figure out a streamline way to make this work. 
+* I would also like to extend this game to have a two players option. 
 
 ## Technology Used 
 
