@@ -253,7 +253,7 @@ $( document ).ready(function() {
   gameOver.hide();
 
   var winner = $('#winner');
-  // winner.hide();
+  winner.hide();
 
 
 
