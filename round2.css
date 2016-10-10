@@ -167,6 +167,16 @@ h5 {
   font-family: 'Cormorant Unicase', serif;
   margin: 0;
 }
+@media screen and (max-width: 1000px) {
+  h4 {
+    font-size: 15px;
+  }
+
+  .end {
+    opacity: 1;
+  }
+}
+
 
 @media screen and (max-width: 480px) {
   .flex-container {
@@ -212,6 +222,14 @@ h5 {
 
   h5 {
     font-size: 30px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 12px;
   }
 }
 

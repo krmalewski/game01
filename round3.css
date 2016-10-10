@@ -185,6 +185,29 @@ h5 {
   background-color: #73635C;
 }
 
+@media screen and (max-width: 1000px) {
+  h5 {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  #play-again {
+    font-size: 20px;
+    margin: 0 0 20px 0;
+  }
+
+  .alert {
+    height: 50%;
+  }
+
+  #winner {
+    height: 40%;
+  }
+}
 
 @media screen and (max-width: 480px) {
   .flex-container {

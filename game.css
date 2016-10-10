@@ -211,6 +211,21 @@ h5 {
   margin: 0;
 }
 
+@media screen and (max-width: 1000px) {
+  h5 {
+    font-size: 45px;
+  }
+
+  h6 {
+    font-size: 15px;
+  }
+
+  button {
+    font-size: 20px;
+    width: 60%;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .flex-container {
     width: 80%;
@@ -256,5 +271,6 @@ h5 {
   h5 {
     font-size: 30px;
   }
+
 }
 
