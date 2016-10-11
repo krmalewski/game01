@@ -224,6 +224,10 @@ h5 {
     font-size: 20px;
     width: 60%;
   }
+
+  .directions {
+    font-size: 10px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -241,6 +245,7 @@ h5 {
     justify-content: space-around;
     padding: 10px 20px;
   }
+
 
   h1 {
     margin-left: 30%;

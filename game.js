@@ -9,6 +9,7 @@ $( document ).ready(function() {
   // Since we are trying to get the username of the player to display on our
   // gameboard, we will need to break up the string that returns the form info
   // and pull out the username.
+  // https://github.com/krmalewski/html_forms_lab
   function delineate(str) {
     theLeft = str.indexOf("=") + 1;
     // The string will be cut into a substring starting after the first "="
@@ -47,6 +48,7 @@ $( document ).ready(function() {
   // The lives will come before the name, after the first "=" so we need to find the
   // location of that "=" within the string and add one. The lives will never be more
   // than one digit so add one to that index to find the ending index of our substring.
+  // https://github.com/krmalewski/html_forms_lab
   function delineateLives(str) {
     point = str.indexOf("=") + 1;
     return(str.substring(point, point + 1));
@@ -147,6 +149,7 @@ $( document ).ready(function() {
   // This function will respond to the users mouseclick on the appearing item
   // and will cause the item to shrink back to height 0 (disappearing in the
   // eues of the user)
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
   function randomNumber(min, max) {
     var interval = Math.random() * (max - min) + min;
     return Math.floor(interval);

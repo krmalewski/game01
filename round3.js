@@ -10,6 +10,7 @@ $( document ).ready(function() {
   // gamr board, we see that it is at the end of the string in the search bar,
   // right after the last equal sign. We will look from the last equal sign and
   // return the index of that plus one, which will be the start of our string.
+  // https://github.com/krmalewski/html_forms_lab
   function delineate(str) {
     point = str.lastIndexOf("=");
     // The string will be cut into a substring starting after the "="
@@ -43,6 +44,7 @@ $( document ).ready(function() {
   // The lives will come before the name, after the first "=" so we need to find the
   // location of that "=" within the string and add one. The lives will never be more
   // than one digit so add one to that index to find the ending index of our substring.
+  // https://github.com/krmalewski/html_forms_lab
   function delineateLives(str) {
     point = str.indexOf("=") + 1;
     return(str.substring(point, point + 1));
@@ -81,6 +83,7 @@ $( document ).ready(function() {
 
   // To generate a random number between 0 and x
   // This will be used to randomly decide an index from the array of images
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
   function randomArrayIndex(max) {
     var number = Math.random() * max
     return Math.floor(number);
@@ -177,6 +180,7 @@ $( document ).ready(function() {
 
 
   // Write a function that generates a random number
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
   function randomNumber(min, max) {
     var interval = Math.random() * (max - min) + min;
     return Math.floor(interval);
