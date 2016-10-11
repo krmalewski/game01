@@ -187,43 +187,37 @@ $( document ).ready(function() {
 
     // Create a timer using a loop
     // Tictoc will add seconds to clock
-    var seconds = 20;
-    var timer = null;
+      var seconds = 20;
+      var timer = null;
 
-      // The set interval will ensure that tictoc is only adding seconds
-      // to the clock after every second
-      function startTime() {
-        timer = setInterval(tictoc, 1000);
+        // The set interval will ensure that tictoc is only adding seconds
+        // to the clock after every second
+        function startTime() {
+          timer = setInterval(tictoc, 1000);
+        }
+
+      // Make a function to turn off the timer
+      function stopTime() {
+        clearInterval(timer);
       }
+      var window1 = setInterval(function() { grow('#one'); }, randomNumber(2000, 10000));
+      var window2 = setInterval(function() { grow('#two'); }, randomNumber(2000, 10000));
+      var window3 = setInterval(function() { grow('#three'); }, randomNumber(2000, 10000));
+      var window4 = setInterval(function() { grow('#four'); }, randomNumber(2000, 10000));
+      var window5 = setInterval(function() { grow('#five'); }, randomNumber(2000, 10000));
+      var window6 = setInterval(function() { grow('#six'); }, randomNumber(2000, 10000));
+      var window7 = setInterval(function() { grow('#seven'); }, randomNumber(2000, 10000));
+      var window8 = setInterval(function() { grow('#eight'); }, randomNumber(2000, 10000));
+      var window9 = setInterval(function() { grow('#nine'); }, randomNumber(2000, 10000));
+      var window10 = setInterval(function() { grow('#ten'); }, randomNumber(2000, 10000));
+      var window11 = setInterval(function() { grow('#eleven'); }, randomNumber(2000, 10000));
+      var window12 = setInterval(function() { grow('#twelve'); }, randomNumber(2000, 10000));
 
-    // Make a function to turn off the timer
-    function stopTime() {
-      clearInterval(timer);
+      $('.directions').hide();
+      startTime();
     }
-    var window1 = setInterval(function() { grow('#one'); }, randomNumber(2000, 10000));
-    var window2 = setInterval(function() { grow('#two'); }, randomNumber(2000, 10000));
-    var window3 = setInterval(function() { grow('#three'); }, randomNumber(2000, 10000));
-    var window4 = setInterval(function() { grow('#four'); }, randomNumber(2000, 10000));
-    var window5 = setInterval(function() { grow('#five'); }, randomNumber(2000, 10000));
-    var window6 = setInterval(function() { grow('#six'); }, randomNumber(2000, 10000));
-    var window7 = setInterval(function() { grow('#seven'); }, randomNumber(2000, 10000));
-    var window8 = setInterval(function() { grow('#eight'); }, randomNumber(2000, 10000));
-    var window9= setInterval(function() { grow('#nine'); }, randomNumber(2000, 10000));
-    var window10 = setInterval(function() { grow('#ten'); }, randomNumber(2000, 10000));
-    var window11 = setInterval(function() { grow('#eleven'); }, randomNumber(2000, 10000));
-    var window12 = setInterval(function() { grow('#twelve'); }, randomNumber(2000, 10000));
-
-    $('.directions').hide();
-    startTime();
-  }
 
   $('.begin').click(beginAnimation);
-
-
-  // // Document.ready will start the timer when the document has loaded
-  // // so they player has a specific amount of time to catch as many creatures
-  // // as possible before the time is up
-  // $(document).ready(startTime)
 
 
   // Initally hide these divs
