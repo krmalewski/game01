@@ -21,13 +21,13 @@ $( document ).ready(function() {
       // If they did, chop the ending character off of the substring
       return nickName.substring(0,nickName.length-1);
     } else {
-      //
       return nickName;
     }
   }
 
   var name = delineate(formInfo);
-  var username = $('.username')
+  var username = $('.username');
+  // Hide username in form so it can be resent to page if player plays this round again
   username.attr("value", name).hide();
 
 
@@ -81,11 +81,11 @@ $( document ).ready(function() {
   // Array of images locations
   var array = ["images/ghost.png", "images/costume.png", "images/crow.png", "images/escape.png", "images/costume.png", "images/ghost2.png", "images/zombie.png", "images/zombie2.png" ];
 
-  // To generate a random number between 0 and x
+  // To generate a random number between 0 and the maximum index number in the array
   // This will be used to randomly decide an index from the array of images
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-  function randomArrayIndex(max) {
-    var number = Math.random() * max
+  function randomArrayIndex(num) {
+    var number = Math.random() * num
     return Math.floor(number);
   }
 
@@ -257,7 +257,7 @@ $( document ).ready(function() {
   gameOver.hide();
 
   var winner = $('#winner');
-  // winner.hide();
+  winner.hide();
 
 
 

@@ -9,7 +9,7 @@ $( document ).ready(function() {
   // Since we are trying to get the username of the player to display on our
   // gameboard, we will need to break up the string that returns the form info
   // and pull out the username.
-  // https://github.com/krmalewski/html_forms_lab
+  // Reference code from html forms lab:  https://github.com/krmalewski/html_forms_lab
   function delineate(str) {
     theLeft = str.indexOf("=") + 1;
     // The string will be cut into a substring starting after the first "="
@@ -22,6 +22,9 @@ $( document ).ready(function() {
 
   var name = delineate(formInfo);
   var username = $('.username')
+  // In order to carry username to next round (since it is on a serparate html file)
+  // I need to save the username in a secret form that will submit to the next page
+  // and can be displayed on the screen for round2 and round 3
   username.attr("value", name).hide();
   // Input the name that we pulled from the form into our name div so it will display
   // on the screen
@@ -35,6 +38,9 @@ $( document ).ready(function() {
   // Input the number of lives into the life box to display on screen
   var lifeBox = $('#lives');
   function displayLife() {
+    // If user does not pass this round, the page reloads and the current number of lives
+    // is saved and submitted via a form (life2). Check to see if life2 has a value and if not,
+    // used the initial life variable.
     if (life2 === 2 || life2 === 1) {
       lifeBox.text('Lives left:   ' + life2);
     } else {
@@ -66,7 +72,7 @@ $( document ).ready(function() {
   var pointBox = $('#points');
   pointBox.text('Points:   ' + points);
 
-
+  // This function causes blood to smear around the border of the screen when an object is hit.
   function blood() {
     $('body').css({
       "background":"url(images/blood-frame.png) no-repeat center center fixed",
@@ -77,6 +83,7 @@ $( document ).ready(function() {
     });
   }
 
+  // This function basically times out the previous function as well as sets the body's opacity back to 1.
   function removeBlood() {
     $('body').css({
       "background-image": "none",
@@ -84,12 +91,15 @@ $( document ).ready(function() {
     });
   }
 
-  // I will also try to update the points live at the top of the screen
+  // When a creature is clicked on, the screen will look bloody and the image of the object will
+  // change to a blood splat so they player will know they have hit that creature.
   function catchMe(event) {
     console.log('BOO');
     blood();
     setTimeout(removeBlood, 300);
     $(event.target).attr('src','images/blood-splatter.png');
+    // In order to keep the divs from shifting, it was important to keep the height of the flex
+    // container constant.
     $('.flex-container').css({
       height: '80px',
     })
@@ -101,10 +111,10 @@ $( document ).ready(function() {
   // Array of images locations
   var array = ["images/ghost.png", "images/crow.png", "images/escape.png", "images/ghost2.png", "images/zombie.png", "images/zombie2.png" ];
 
-  // To generate a random number between 0 and x
+  // To generate a random number between 0 and the last array index
   // This will be used to randomly decide an index from the array of images
-  function randomArrayIndex(max) {
-    var number = Math.random() * max
+  function randomArrayIndex(num) {
+    var number = Math.random() * num
     return Math.floor(number);
   }
 
@@ -143,8 +153,6 @@ $( document ).ready(function() {
     })
   }
 
-
-
   // Write a function that generates a random number
   // This function will respond to the users mouseclick on the appearing item
   // and will cause the item to shrink back to height 0 (disappearing in the
@@ -163,11 +171,17 @@ $( document ).ready(function() {
   function beginAnimation() {
     console.log('clicked');
 
+    var seconds = 20;
+    var timer = null;
+
     function tictoc(){
+      // Create a timer using a loop
+      // Tictoc will add seconds to clock
       var timeBox = $('#timer');
       timeBox.text('Time left:   ' + seconds);
       seconds -= 1;
       console.log(seconds);
+      // When the time is up, stop the images from popping up in the windows by clearing the interval.
       if (seconds === 0) {
         clearInterval(window1);
         clearInterval(window2);
@@ -183,15 +197,11 @@ $( document ).ready(function() {
         clearInterval(window12);
         timeBox.text('Time\'s up!');
         stopTime();
+        // This will help to imediately hide all images.
         $('.flex-container').hide();
         displayButton();
       }
     }
-
-    // Create a timer using a loop
-    // Tictoc will add seconds to clock
-    var seconds = 20;
-    var timer = null;
 
     // The set interval will ensure that tictoc is only adding seconds
     // to the clock after every second
@@ -204,6 +214,7 @@ $( document ).ready(function() {
       clearInterval(timer);
     }
 
+    // Each div will grow at random inervals
     var window1 = setInterval(function() { grow('#one'); }, randomNumber(2000, 10000));
     var window2 = setInterval(function() { grow('#two'); }, randomNumber(2000, 10000));
     var window3 = setInterval(function() { grow('#three'); }, randomNumber(2000, 10000));
@@ -221,6 +232,7 @@ $( document ).ready(function() {
       startTime();
   }
 
+  // Once player has read through directions, the game will begin by clicking this button.
   $('.begin').click(beginAnimation);
 
 
@@ -235,23 +247,30 @@ $( document ).ready(function() {
   gameOver.hide();
 
 
-  // If player scores enough points, they will
+  // Depending on the amount of points a player scores at the end of the round....
   function displayButton() {
+    // If they are out of lives and do not score enough points, game over.
     if (life2 === 1 && points < 2000) {
       life2 -= 1;
       lifeBox.text('Lives left: ' + life2);
       gameOver.show();
+      // If they score enough points, they will move to the next round.
+      // In this case and the next, the player has already lost this round once and their current lives left
+      // has been deliniated from a form so it will need to be reentered to move onto the next round/ replay this round.
     } else if ((life2 === 1 && points >= 2000) || (life2 === 2 && points >= 2000) || (life2 === 3 && points >= 2000))  {
       lifeForm.attr("value", life2)
       form1.show();
+      // If they did not score enough points but still have lives left, they will replay this round.
     } else if (life2 === 2 && points < 2000) {
       life2 -= 1;
       lifeBox.text('Lives left: ' + life2);
       lifeForm.attr("value", life2);
       form2.show();
+      // Enough points, move to next round.
     } else if (points >= 2000) {
       lifeForm.attr("value", life)
       form1.show();
+      // Not enough points, replay this round.
     } else {
       life -= 1;
       life2 -= 1;

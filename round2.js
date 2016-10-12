@@ -10,7 +10,7 @@ $( document ).ready(function() {
   // gamr board, we see that it is at the end of the string in the search bar,
   // right after the last equal sign. We will look from the last equal sign and
   // return the index of that plus one, which will be the start of our string.
-  // https://github.com/krmalewski/html_forms_lab
+  // Reference code from html forms lab:  https://github.com/krmalewski/html_forms_lab
   function delineate(str) {
     point = str.lastIndexOf("=");
     // The string will be cut into a substring starting after the "="
@@ -28,6 +28,8 @@ $( document ).ready(function() {
 
   var name = delineate(formInfo);
   var username = $('.username')
+  // Once username is delineated from the url, it will be hidden in a secret form that
+  // will pass this information on to the next round if the player moves on.
   username.attr("value", name).hide();
 
 
@@ -36,7 +38,6 @@ $( document ).ready(function() {
   var nameBox = $('#name');
   var player1 = nameBox.text();
   nameBox.text(player1 + " " + name);
-
 
 
   // After losing one life and replaying the round, we will need to get the number
@@ -79,11 +80,11 @@ $( document ).ready(function() {
   var array = ["images/ghost.png", "images/crow.png", "images/escape.png", "images/ghost2.png", "images/zombie.png", "images/zombie2.png" ];
 
 
-  // To generate a random number between 0 and x
+  // To generate a random number between 0 and and the maximum index of the array
   // This will be used to randomly decide an index from the array of images
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-  function randomArrayIndex(max) {
-    var number = Math.random() * max
+  function randomArrayIndex(num) {
+    var number = Math.random() * num
     return Math.floor(number);
   }
 
@@ -191,6 +192,7 @@ $( document ).ready(function() {
     seconds -= 1;
     console.log(seconds);
     if (seconds === 0) {
+      // Clear "grow" intervals when timer is up so that creatures stop popping up in the windows.
       clearInterval(window1);
       clearInterval(window2);
       clearInterval(window3);
@@ -205,6 +207,7 @@ $( document ).ready(function() {
       clearInterval(window12);
       timeBox.text('Time\'s up!');
       stopTime();
+      // Immediately hide the images once the time is up.
       $('.flex-container').hide();
       displayButton();
     }
